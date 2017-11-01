@@ -1,3 +1,5 @@
+.. image:: http://nikolaskama.me/content/images/2017/02/kickthemout_small.png
+
 KickThemOut
 ============
 
@@ -10,33 +12,67 @@ Compatible with Python 2.6 & 2.7.
 
 Authors: `Nikolaos Kamarinakis <mailto:nikolaskam@gmail.com>`_  & `David Schütz <mailto:xdavid@protonmail.com>`_.
 
-.. image:: https://nikolaskama.me/content/images/2017/01/kickthemout.png
-
-Installation
+.. image:: https://travis-ci.org/k4m4/kickthemout.svg?branch=master
+    :target: https://travis-ci.org/k4m4/kickthemout
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+    :target: https://github.com/k4m4/kickthemout/blob/master/LICENSE
+.. image:: https://img.shields.io/badge/made%20with-%3C3-red.svg
+    :target: https://nikolaskama.me/kickthemoutproject
+.. image:: https://img.shields.io/github/stars/k4m4/kickthemout.svg
+    :target: https://github.com/k4m4/kickthemout/stargazers
+    
 -------------
 
+Debian Installation
+----------------------
+
 You can download KickThemOut by cloning the `Git Repo <https://github.com/k4m4/kickthemout>`_ and simply installing its requirements::
+
+    $ sudo apt-get update && sudo apt-get install nmap
 
     $ git clone https://github.com/k4m4/kickthemout.git
     
     $ cd kickthemout/
-    
-    $ sudo pip install -r requirements.txt
 
-Mac OS X Installation
+    $ sudo -H pip install --upgrade pip
+    
+    $ sudo -H python -m pip install -r requirements.txt
+    
+    $ sudo python kickthemout.py
+
+MacOS Installation
 ----------------------
 
 If you would like to install KickThemOut on a Mac, please run the following::
 
-    $ sudo pip install pcapy
+    $ sudo -H pip install --upgrade pip
     
-    $ brew install libdnet scapy
+    $ sudo -H pip install pcapy
+    
+    $ brew update
+
+    $ brew install --with-python libdnet nmap
 
 **Keep in mind** that you might be asked to run some commands after executing the previous step. Moving on::
 
     $ git clone https://github.com/k4m4/kickthemout.git
 
+    $ cd kickthemout/
+
+    $ sudo -H pip install -r requirements.txt
+    
+    $ sudo python kickthemout.py
+
 **NOTE**: You need to have `Homebrew <http://brew.sh/>`_ installed before running the Mac OS installation.
+
+Arch Installation
+----------------------
+
+You can download KickThemOut on an Arch based system by executing the following::
+
+    $ yaourt -S kickthemout-git
+    
+    $ sudo kickthemout
 
 Demo
 -----
@@ -47,6 +83,12 @@ Here's a short demo:
    :target: https://asciinema.org/a/98200?autoplay=1&loop=1
 
 (For more demos click `here <https://asciinema.org/~k4m4>`_.)
+
+Developers
+-----------
+
+* Nikolaos Kamarinakis - `@nikolaskama <https://twitter.com/nikolaskama>`_
+* David Schütz - `@xdavidhu <https://twitter.com/xdavidhu>`_
 
 Disclaimer
 -----------
