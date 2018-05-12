@@ -32,6 +32,7 @@ try:
     from scapy.all import *
     import scan, spoof, nmap
     from urllib.request import urlopen, Request
+    from urllib.error import URLError
 except KeyboardInterrupt:
     shutdown()
 except:
@@ -128,7 +129,7 @@ def checkInternetConnection():
     try:
         urlopen('https://google.com', timeout=3)
         return True
-    except urllib.URLError as err:
+    except URLError as err:
         return False
     except KeyboardInterrupt:
         shutdown()
@@ -256,12 +257,15 @@ def scanNetwork():
         # call scanning function from scan.py
         hostsList = scan.scanNetwork(getDefaultInterface(True))
     except KeyboardInterrupt:
-        pass
+        shutdown()
     except:
         print("\n\n{}ERROR: Network scanning failed. Please check your requirements configuration.{}".format(RED, END))
         print("\n{}If you still cannot resolve this error, please submit an issue here:\n\t{}https://github.com/k4m4/kickthemout/issues\n\n{}Details: {}{}{}".format(RED, BLUE, RED, GREEN, str(sys.exc_info()[1]), END))
         os._exit(1)
-    regenOnlineIPs()
+    try:
+        regenOnlineIPs()
+    except KeyboardInterrupt:
+        shutdown()
 
 
 
